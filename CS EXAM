@@ -1,0 +1,33 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Oct 30 13:22:09 2018
+
+@author: Loa
+"""
+
+def check_sum(a, b, number):
+    if a + b == number:
+        return True
+    else:
+        return False
+
+
+def pair_of_numbers(sequence, number):
+    if len(sequence) < 2:
+        return 'Sequence is too short'
+    left = 0
+    right = len(sequence) - 1
+    i = right
+    while left < right:
+        if check_sum(sequence[left], sequence[i], number):
+            string = 'The numbers ' + str(sequence[left]) +
+            ' and ' + str(sequence[i]) + ' equal ' + str(number)
+            return string
+        if i < left+2:
+            left += 1
+            i = right
+    return 'No combinations found'
+
+seq = [3, 4, 1, 7, 9, 17]
+no = 8
+print(pair_of_numbers(seq, no))
